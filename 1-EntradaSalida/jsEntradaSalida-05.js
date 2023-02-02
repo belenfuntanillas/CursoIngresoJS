@@ -1,7 +1,7 @@
 /* Funtanillas Belén
 Debemos lograr tomar nombre y edad por ID y mostrarlos concatenados 
 ej.: "Usted se llama José y tiene 66 años" 	*/
-//EJERCICIO 5 Y 5 BIS
+//EJERCICIO 5 Y 5 BIS Funtanillas Belén 
 function mostrar()
 {	
 	//declaro variable

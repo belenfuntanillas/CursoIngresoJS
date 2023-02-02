@@ -4,7 +4,7 @@ transformarlos a enteros (parseInt),realizar la operación correcta y
 mostrar el resto entre el dividendo y el divisor.
 ej.: "El resto es 0 ."*/
 
-//EJERCICIO 8 Y 8 BIS
+//EJERCICIO 8 Y 8 BIS Funtanillas Belén 
 
 function SacarResto()
 {
@@ -21,21 +21,19 @@ function SacarResto()
 	numDividendo = document.getElementById("txtIdNumeroDividendo").value;
 	numDivisor = document.getElementById("txtIdNumeroDivisor").value; 
 
-	numDividendo= parseInt(numDividendo);
-	numDivisor= parseInt(numDivisor);
+	numDividendo = parseInt(numDividendo);
+	numDivisor = parseInt(numDivisor);
 
-	suma= (numDividendo + numDivisor);
-	mensajeSuma= " La suma es " + suma;
+	suma = numDividendo + numDivisor;
+	mensajeSuma = " La suma es " + suma;
 
-	promedio= (suma / 2);
-	mensajePromedio= " el promedio es " + promedio;
+	promedio = suma / 2;
+	mensajePromedio = " el promedio es " + promedio;
 
-	modulo= numDividendo;
-	mensajeModulo= " y el modulo es " + modulo;
+	modulo = numDividendo % numDivisor; 
+	mensajeModulo = " y el modulo es " + modulo;
 
-	mensaje= "El resto es " + (numDividendo % numDivisor);
-
-
+	mensaje = "El resto es " + (numDividendo % numDivisor);
 
 	alert(mensaje + mensajeSuma + mensajePromedio + mensajeModulo);
 }

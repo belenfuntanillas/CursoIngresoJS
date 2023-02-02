@@ -21,7 +21,7 @@ function mostrarAumento()
 
 }*/
 
-//10 bis Funtanillas Belén 
+//10 y 10 bis Funtanillas Belén 
 function mostrarAumento()
 {
 	let importe;
