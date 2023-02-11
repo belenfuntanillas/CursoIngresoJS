@@ -90,8 +90,8 @@ function CalcularPrecio ()
     marca = document.getElementById("Marca").value;
     descuento = 0; 
 
-    if (cantidadLamparas > 0) 
-    {
+    
+    
         if (marca == "ArgentinaLuz") 
         {
             switch (cantidadLamparas) 
@@ -139,7 +139,7 @@ function CalcularPrecio ()
                 break; 
             }
         } 
-    }
+    
 
     precioFinal = precio - (precio * descuento); 
 
