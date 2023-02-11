@@ -323,11 +323,13 @@ function CalcularPrecio ()
                 case 5:
                     switch (marca)
                     {
-                        case "ArgentinaLuz": porcentaje = 40/100
-                        break;
-    
-                        default : porcentaje = 30/100
-                        break;
+                        case "ArgentinaLuz": 
+                            descuento = 40/100
+                            break;
+        
+                        default: 
+                            descuento = 30/100
+                            break;
                     }
                         
                 break;
@@ -336,10 +338,12 @@ function CalcularPrecio ()
                     switch (marca)
                     {
                         case "ArgentinaLuz":
-                        case "FelipeLamparas": porcentaje = 25/100
-                        break;
-                        default : porcentaje = 20/100
-                        break;
+                        case "FelipeLamparas": 
+                            descuento = 25/100
+                            break;
+                        default : 
+                            descuento = 20/100
+                            break;
                     }
     
                 break;
@@ -347,31 +351,35 @@ function CalcularPrecio ()
                 case 3:
                     switch (marca)
                     {
-                        case "ArgentinaLuz": porcentaje = 15/100
-                        break;
-                        case "FelipeLamparas": porcentaje = 10/100
-                        break;
-                        default : porcentaje = 5/100
-                        break;
+                        case "ArgentinaLuz": 
+                            descuento = 15/100
+                            break;
+                        case "FelipeLamparas": 
+                            descuento = 10/100
+                            break;
+                        default: 
+                            descuento = 5/100
+                            break;
                     }
     
                 break;
     
                 case 2:
-                    porcentaje = 0/100
+                    descuento = 0/100
                 break;
     
                 case 1:
-                    porcentaje = 0/100
+                    descuento = 0/100
                 break;
     
                 default:
-                    porcentaje = 50/100
+                    descuento = 50/100
                 break;
                 
             }
             
         } 
+
         precioFinal = precio - (precio * descuento); 
 
         if (precioFinal >= 120) 
