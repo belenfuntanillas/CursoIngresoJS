@@ -88,54 +88,58 @@ function CalcularPrecio ()
 
     cantidadLamparas = parseInt(document.getElementById("txtIdCantidad").value);
     marca = document.getElementById("Marca").value;
+    descuento = 0; 
 
-    if (marca == "ArgentinaLuz") 
+    if (cantidadLamparas > 0) 
     {
-        switch (cantidadLamparas) 
+        if (marca == "ArgentinaLuz") 
         {
-            case 5:
-                descuento = 40/100;
-                break;
-            case 4: 
+            switch (cantidadLamparas) 
+            {
+                case 5:
+                    descuento = 40/100;
+                    break;
+                case 4: 
+                    descuento = 25/100;
+                    break; 
+                case 3: 
+                    descuento = 15/100;
+                    break; 
+                default:
+                    descuento = 50/100;
+            }
+        }else if (marca == "FelipeLamparas") 
+        {
+            switch (cantidadLamparas) 
+            {
+                case 4:
                 descuento = 25/100;
-                break; 
-            case 3: 
-                descuento = 15/100;
-                break; 
-            default:
-                descuento = 50/100;
-        }
-    }else if (marca == "FelipeLamparas") 
-    {
-        switch (cantidadLamparas) 
+                break;
+                case 3:
+                    descuento = 10/100;
+                    break;
+                default:
+                    descuento = 50/100;
+            }
+        }else if (marca != "ArgentinaLuz" && marca != "FelipeLamparas") 
         {
-            case 4:
-                descuento = 25/100;
-                break;
-            case 3:
-                descuento = 10/100;
-                break;
-            default:
-                descuento = 50/100;
-        }
-    }else if (marca != "ArgentinaLuz" && marca != "FelipeLamparas") 
-    {
-        switch (cantidadLamparas) 
-        {
-            case 5:
-                descuento = 30/100;
-                break;
-            case 4:
-                descuento = 20/100;
-                break;
-            case 3:
-                descuento = 5/100;
-                break;
-            default:
-                descuento = 50/100;
+            switch (cantidadLamparas) 
+            {
+                case 5:
+                    descuento = 30/100;
+                    break;
+                case 4:
+                    descuento = 20/100;
+                    break;
+                case 3:
+                    descuento = 5/100;
+                    break;
+                default:
+                    descuento = 50/100;
                 break; 
-        }
-    } 
+            }
+        } 
+    }
 
     precioFinal = precio - (precio * descuento); 
 
