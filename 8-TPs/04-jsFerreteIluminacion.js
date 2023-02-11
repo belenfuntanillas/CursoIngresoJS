@@ -155,7 +155,7 @@ function CalcularPrecio ()
 
     //SWITCH (MARCA) IF (LAMPARAS)
 
-    let cantidadLamparas;
+   /* let cantidadLamparas;
     let precio;
     let marca; 
     let precioFinal;
@@ -297,10 +297,92 @@ function CalcularPrecio ()
             alert("Usted pago " + impuesto + " de IIBB"); 
         }
 
-        document.getElementById("txtIdprecioDescuento").value = precioFinal;
+        document.getElementById("txtIdprecioDescuento").value = precioFinal;*/
 
+        //TODO SWITCH
 
-    } 
+    let cantidadLamparas;
+    let precio;
+    let marca; 
+    let precioFinal;
+    let descuento; 
+    let impuesto; 
+
+    precio = 35;
     
 
+    cantidadLamparas = parseInt(document.getElementById("txtIdCantidad").value);
+    marca = document.getElementById("Marca").value;
+    descuento = 0; 
 
+
+        if (cantidadLamparas >0)
+        {
+            switch(cantidadLamparas)
+            {
+                case 5:
+                    switch (marca)
+                    {
+                        case "ArgentinaLuz": porcentaje = 40/100
+                        break;
+    
+                        default : porcentaje = 30/100
+                        break;
+                    }
+                        
+                break;
+    
+                case 4:
+                    switch (marca)
+                    {
+                        case "ArgentinaLuz":
+                        case "FelipeLamparas": porcentaje = 25/100
+                        break;
+                        default : porcentaje = 20/100
+                        break;
+                    }
+    
+                break;
+    
+                case 3:
+                    switch (marca)
+                    {
+                        case "ArgentinaLuz": porcentaje = 15/100
+                        break;
+                        case "FelipeLamparas": porcentaje = 10/100
+                        break;
+                        default : porcentaje = 5/100
+                        break;
+                    }
+    
+                break;
+    
+                case 2:
+                    porcentaje = 0/100
+                break;
+    
+                case 1:
+                    porcentaje = 0/100
+                break;
+    
+                default:
+                    porcentaje = 50/100
+                break;
+                
+            }
+            
+        } 
+        precioFinal = precio - (precio * descuento); 
+
+        if (precioFinal >= 120) 
+        {
+            impuesto = precioFinal * 10/100; 
+            precioFinal = precioFinal + impuesto; 
+
+            alert("Usted pago " + impuesto + " de IIBB"); 
+        }
+
+        document.getElementById("txtIdprecioDescuento").value = precioFinal;
+
+    }
+    
