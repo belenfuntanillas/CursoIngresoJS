@@ -74,6 +74,8 @@ function CalcularPrecio ()
 
     document.getElementById("txtIdprecioDescuento").value = precioFinal;*/
 
+    //FUNTANILLAS BELÉN IF (MARCA) SWITCH (CANTIDAD)
+    
     let cantidadLamparas;
     let precio;
     let marca; 
