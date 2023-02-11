@@ -76,7 +76,7 @@ function CalcularPrecio ()
 
     //FUNTANILLAS BELÉN IF (MARCA) SWITCH (CANTIDAD)
     
-    let cantidadLamparas;
+   /* let cantidadLamparas;
     let precio;
     let marca; 
     let precioFinal;
@@ -92,7 +92,7 @@ function CalcularPrecio ()
 
     
     
-        if (marca == "ArgentinaLuz") 
+       if (marca == "ArgentinaLuz") 
         {
             switch (cantidadLamparas) 
             {
@@ -151,7 +151,153 @@ function CalcularPrecio ()
         alert("Usted pago " + impuesto + " de IIBB"); 
     }
 
-    document.getElementById("txtIdprecioDescuento").value = precioFinal;
+    document.getElementById("txtIdprecioDescuento").value = precioFinal;*/
+
+    //SWITCH (MARCA) IF (LAMPARAS)
+
+    let cantidadLamparas;
+    let precio;
+    let marca; 
+    let precioFinal;
+    let descuento; 
+    let impuesto; 
+
+    precio = 35;
+    
+
+    cantidadLamparas = parseInt(document.getElementById("txtIdCantidad").value);
+    marca = document.getElementById("Marca").value;
+    descuento = 0; 
+
+    switch (marca) 
+    {
+        case "ArgentinaLuz":
+            if (cantidadLamparas >=6) 
+            {
+                descuento = 50/100; 
+
+            }else if(cantidadLamparas == 5)
+            {
+                descuento = 40/100;
+
+            }else if (cantidadLamparas == 4) 
+            {
+                descuento = 25/100;
+
+            }else if(cantidadLamparas == 3)
+            {
+                descuento = 15/100;
+
+            }else{
+                descuento = 0/100; 
+            }
+
+            break;
+        
+        case "FelipeLamparas":
+            if (cantidadLamparas >=6) 
+            {
+                descuento = 50/100; 
+
+            }else if(cantidadLamparas == 5)
+            {
+                descuento = 30/100;
+
+            }else if (cantidadLamparas == 4) 
+            {
+                descuento = 25/100;
+
+            }else if(cantidadLamparas == 3)
+            {
+                descuento = 10/100;
+
+            }else{
+                descuento = 0/100; 
+            }
+
+            break;
+
+        case "JeLuz":
+            if (cantidadLamparas >= 6) 
+            {
+                descuento = 50/100;
+
+            }else if (cantidadLamparas == 5) 
+            {
+                descuento = 30/100;
+
+            }else if (cantidadLamparas == 4)
+            {
+                descuento = 20/100;
+
+            }else if (cantidadLamparas == 3) 
+            {
+                descuento = 5/100; 
+
+            }else{
+                descuento = 0/100;
+            }
+
+            break; 
+
+        case "HazIluminacion":
+            if (cantidadLamparas >= 6) 
+            {
+                descuento = 50/100;
+
+            }else if (cantidadLamparas == 5) 
+            {
+                descuento = 30/100;
+
+            }else if (cantidadLamparas == 4)
+            {
+                descuento = 20/100;
+
+            }else if (cantidadLamparas == 3) 
+            {
+                descuento = 5/100; 
+
+            }else{
+                descuento = 0/100;
+            }
+
+            break; 
+
+        case "Osram":
+            if (cantidadLamparas >= 6) 
+            {
+                descuento = 50/100;
+
+            }else if (cantidadLamparas == 5) 
+            {
+                descuento = 30/100;
+
+            }else if (cantidadLamparas == 4)
+            {
+                descuento = 20/100;
+
+            }else if (cantidadLamparas == 3) 
+            {
+                descuento = 5/100; 
+
+            }else{
+                descuento = 0/100;
+            }
+
+            break; 
+
+    }
+        precioFinal = precio - (precio * descuento); 
+
+        if (precioFinal >= 120) 
+        {
+            impuesto = precioFinal * 10/100; 
+            precioFinal = precioFinal + impuesto; 
+
+            alert("Usted pago " + impuesto + " de IIBB"); 
+        }
+
+        document.getElementById("txtIdprecioDescuento").value = precioFinal;
 
 
     } 
