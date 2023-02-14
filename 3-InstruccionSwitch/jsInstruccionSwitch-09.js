@@ -60,6 +60,8 @@ function mostrar()
 				case "Cataratas": 
 					porcentaje = 10/100;
 					break;
+				case "Cordoba":
+					porcentaje = 0/100;
 			}
 	}
 	
@@ -67,6 +69,7 @@ function mostrar()
 	mensaje = "El precio final del viaje es de $" + precioFinal; 
 
 	alert(mensaje); 
+
 
 
 }//FIN DE LA FUNCIÓN
