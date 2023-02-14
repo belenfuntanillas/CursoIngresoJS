@@ -63,7 +63,7 @@ function mostrar()
 			}
 	}
 	
-	precioFinal = precio * (precio + porcentaje);
+	precioFinal = precio + (precio * porcentaje);
 	mensaje = "El precio final del viaje es de $" + precioFinal; 
 
 	alert(mensaje); 
