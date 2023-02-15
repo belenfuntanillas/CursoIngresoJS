@@ -1,4 +1,4 @@
-/*
+/* Funtanillas Belén
 Al presionar el botón pedir  números  hasta que el USUARIO QUIERA 
 e informar la suma acumulada y el promedio.
 */
@@ -11,8 +11,26 @@ function mostrar()
 	acumulador=0;
 	respuesta='si';
 
+	while(respuesta=="si")  //while principal 
+	{
+		numeroIngresado = parseInt(prompt("ingresa un numero"));
 
-	txtIdSuma.value=acumulador;
-	txtIdPromedio.value=acumulador/contador;
+		while (isNaN(numeroIngresado)) 
+		{
+			numeroIngresado = parseInt(prompt("ERROR: ingresa un numero"));
+		}
 
-}//FIN DE LA FUNCIÓN
+		contador = contador + 1;
+		acumulador = acumulador + numeroIngresado; 
+
+		respuesta=prompt("desea continuar? si/no");
+	}
+	
+	promedio =  acumulador / contador; 
+
+	document.getElementById("txtIdSuma").value = acumulador; 
+	document.getElementById("txtIdPromedio").value = promedio;
+
+}
+
+//FIN DE LA FUNCIÓN 
