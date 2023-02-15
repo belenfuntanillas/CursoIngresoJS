@@ -7,15 +7,16 @@ function mostrar()
 
 	sexoIngresado = prompt("ingrese f para (femenino) o m para (masculino)");
 
-	while (sexoIngresado != "f" || sexoIngresado != "m" || sexoIngresado != "F" || sexoIngresado != "M") 
+	while (sexoIngresado != "f" && sexoIngresado != "m" && sexoIngresado != "F" && sexoIngresado != "M") 
 	{
-		alert("ERROR: Ingrese f o m"); 
+	
 		sexoIngresado = prompt("ingrese f para (femenino) o m para (masculino)");
 
 
 	} if (sexoIngresado == "m" || sexoIngresado == "M") 
 	{
 		sexoIngresado = "Masculino"; 
+		
 	} else if (sexoIngresado == "f" || sexoIngresado == "F") 
 	{
 		sexoIngresado = "Femenino"; 
