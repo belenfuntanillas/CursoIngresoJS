@@ -7,11 +7,16 @@ function mostrar()
 	let numeroIngresado;
 	let numeroMaximo;
 	let numeroMinimo;
+	let MenorPar;
+	let banderaPar;
+	let mayorNegativos;
+	let banderaMayorNegativos; 
 	let respuesta;
 
 	//iniciar variables
 
 	banderaDelPrimero= true;
+	banderaPar = true;
 	respuesta='si';
 
 	while(respuesta=="si")  //while principal 
@@ -36,10 +41,27 @@ function mostrar()
 		{
 			numeroIngresado = numeroMinimo;
 		}
-
+		// 9 BIS
+		if(numeroIngresado % 2 == 0)
+		{
+			if(banderaPar == true || MenorPar > numeroIngresado)
+			{
+				MenorPar = numeroIngresado;
+			}
+			
+		}
+		if(numeroIngresado < 0)
+		{
+			if (banderaMayorNegativos == true || mayorNegativos < numeroIngresado) 
+			{
+				mayorNegativos = numeroIngresado; 
+			}
+		}
 		respuesta=prompt("desea continuar? si/no");
 	}
 	
+	alert("Su mayor negativo es " + mayorNegativos); 
+	alert("Su menor par es " + MenorPar);
 	document.getElementById("txtIdMaximo").value = numeroMaximo
 	document.getElementById("txtIdMinimo").value = numeroMinimo
 	

@@ -4,7 +4,7 @@ con números ASCENDENTE, desde el 1 al 10.
 */
 function mostrar()
 {
-	let i;
+	/*let i;
 	let contadorPares;
 	let contadorImpares;
 	let acumuladorImpares;
@@ -61,7 +61,48 @@ function mostrar()
 	console.log("La suma de los numeros pares es " + acumuladorPares); 
 	console.log("El mayor de los numeros impares es " + mayorNumeroImpar); 
 	console.log("El mayor de los numeros pares es " + mayorNumeroPar); 
-	console.log("El mayor numero es " + mayorNumero); 
+	console.log("El mayor numero es " + mayorNumero); */
+
+	//WHILE 1 BIS Funtanillas Belén
+	let edad;
+	let nombre; 
+	let banderaDelPrimero;
+	let edadMaxima;
+	let edadMinima; 
+	let respuesta;
+	let nombreMayor;
+	let nombreMenor; 
+
+	banderaDelPrimero = true; 
+	respuesta = "si"; 
+
+	while(respuesta == "si")
+	{	nombre = prompt("Ingrese su nombre");
+		edad = parseInt(prompt("Ingrese su edad"));
+			while (isNaN(edad) || edad < 0 || edad > 120) 
+			{
+				edad = parseInt(prompt("ERROR: ingresa su edad correctamente"));
+			}
+			if (banderaDelPrimero == true) 
+			{	edadMaxima = edad;
+				edadMinima = edad; 
+				nombreMayor = nombre;
+				nombreMenor = nombre; 
+				banderaDelPrimero = false; 
+			}
+			else if(edadMaxima < edad) // edad > edadMaxima
+			{	nombreMayor = nombre; 
+				edadMaxima = edad; 
+			}
+			else if(edadMinima > edad)
+			{	nombreMenor = nombre; 
+				edadMinima = edad; 
+			}
+			respuesta = prompt("Desea continuar? si/no"); 
+	}
+
+	console.log("La persona mas joven es " + nombreMenor); 
+	console.log("La persona mas vieja es " + nombreMayor);
 
 
 }//FIN DE LA FUNCIÓN
