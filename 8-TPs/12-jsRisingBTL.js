@@ -16,74 +16,99 @@ function ComenzarIngreso ()
 	let sueldoBruto;
 	let numeroLegajo; 
 	let nacionalidad; 
-
-	//punto A
-	edadIngresada = parseInt(prompt("Ingrese su edad entre 18 y 90 años:")); 
-	while (edadIngresada < 18 || edadIngresada > 90) 
+	
+	//PUNTO A 
+	edadIngresada = parseInt(prompt("Ingrese una edad entre 18 y 90 años")); 
+	while (isNaN(edadIngresada) || edadIngresada < "18" || edadIngresada > "90" ) 
 	{
-		edadIngresada = parseInt(prompt("ERROR! Ingrese su edad entre 18 y 90 años:")); 
-	}
-
-	//punto B
-	sexoIngresado = prompt("Ingrese su sexo: M para masculino y F para femenino "); 
-	while (sexoIngresado != "M" && sexoIngresado != "m" && sexoIngresado != "F" && sexoIngresado != "f") 
-	{
-		sexoIngresado = prompt("ERROR!!! Ingrese M para masculino y F para femenino "); 
-	}if (sexoIngresado == "M" || sexoIngresado == "m") 
-	{
-		sexoIngresado = "Su sexo es masculino";
+		edadIngresada = parseInt(prompt("ERROR Ingrese una edad entre 18 y 90 años")); 
 		
-	} else if (sexoIngresado == "F" || sexoIngresado == "f") 
+	}
+	document.getElementById("txtIdEdad").value = edadIngresada; 
+
+	//PUNTO B 
+	sexoIngresado = prompt("Ingrese M para masculino o F para femenino"); 
+	while (!isNaN(sexoIngresado) && sexoIngresado != "M" && sexoIngresado != "m" && sexoIngresado != "F" && sexoIngresado != "f") 
+	{
+		sexoIngresado = prompt("ERROR Ingrese M para masculino o F para femenino"); 
+
+	}if(sexoIngresado == "m" || sexoIngresado == "M")
+	{
+		sexoIngresado = "Su sexo es masculino"; 
+	}else if( sexoIngresado == "f" || sexoIngresado == "F")
 	{
 		sexoIngresado = "Su sexo ingresado es femenino"; 
 	}
+	document.getElementById("txtIdSexo").value = sexoIngresado; 
 
-	//punto C
-	/*estadoCivilIngresado = prompt("Ingrese su estado civil: n/n 1-para soltero n/n 2-para casados n/n 3-para divorciados n/n 4-para viudos")
-	while (IsNan(estadoCivilIngresado) || estadoCivilIngresado > 4 || estadoCivilIngresado < 1) 
+	//PUNTO C
+	estadoCivilIngresado = parseInt(prompt("Ingrese 1 (para soltero), 2 (para casados), 3 (para divorciados) o 4 (para viudos)")); 
+
+	while (isNaN(estadoCivilIngresado) || estadoCivilIngresado < "1" || estadoCivilIngresado > "4") 
 	{
-		estadoCivilIngresado = prompt("ERROR!!!"+ "n/n" + "Ingrese su estado civil:"+ "n/n" + "1-para soltero" +"n/n"+ "2-para casados"+ "n/n"+ "3-para divorciados"+ "n/n"+ "4-para viudos");
-	
-		switch (estadoCivilIngresado) {
-			case "1": 
-				estadoCivilIngresado = "Su estado civil es soltero/a";
-				break;
-			case "2":
-				estadoCivilIngresado = "Su estado civil es casado/a";
-				break;
-			case "3": 
-				estadoCivilIngresado = "Su estado civil es divorciado/a"; 
-				break; 
-			case "4": 
-				estadoCivilIngresado = "Su estado civil es viudo/a";
-				break;
+		estadoCivilIngresado = parseInt(prompt("ERROR Ingrese 1 (para soltero), 2 (para casados), 3 (para divorciados) o 4 (para viudos)")); 
+
+		if(estadoCivilIngresado == "1")
+		{
+			estadoCivilIngresado = "Su estado civil es soltero/a";
+
+		}else if(estadoCivilIngresado == "2")
+		{
+			estadoCivilIngresado = "Su estado civil es casado/a";
+
+		}else if (estadoCivilIngresado == "3") 
+		{
+			estadoCivilIngresado = "Su estado civil es soltero";
+
+		}else if (estadoCivilIngresado == "4") 
+		{
+			estadoCivilIngresado = "Su estado civil es viudo/a";
 		}
-		document.getElementById("txtIdEstadoCivil").value = estadoCivilIngresado;
-	}*/
+	}
+	document.getElementById("txtIdEstadoCivil").value = estadoCivilIngresado; 
 
-	// punto D
-
-	sueldoBruto = parseFloat(prompt("Ingrese su sueldo bruto, no menor a $8000"));
-	while (IsNan(sueldoBruto) || sueldoBruto < 8000) 
+	//PUNTO D
+	sueldoBruto = parseFloat(prompt("Ingrese su sueldo bruto (no menor a 8000")); 
+	while(sueldoBruto < 8000)
 	{
-		sueldoBruto = parseFloat(prompt("ERROR!!! Ingrese su sueldo bruto, no menor a $8000"));
+		sueldoBruto = parseFloat(prompt("ERROR Ingrese su sueldo bruto (no menor a 8000")); 
+
+	}
+	document.getElementById("txtIdSueldo").value = sueldoBruto; 
+
+	//PUNTO E
+	numeroLegajo = parseInt(prompt("Ingrese numero de legajo (numérico de 4 cifras, sin ceros a la izquierda)")); 
+	while (isNaN(numeroLegajo)) 
+	{
+		numeroLegajo = parseInt(prompt("ERROR Ingrese numero de legajo (numérico de 4 cifras, sin ceros a la izquierda)")); 
+
+	}
+	document.getElementById("txtIdLegajo").value = numeroLegajo; 
+
+	//PUNTO F
+	nacionalidad = prompt("Ingrese “A” para argentinos, “E” para extranjeros, “N” para nacionalizados"); 
+	while(nacionalidad != "A" && nacionalidad != "a" && nacionalidad != "e" && nacionalidad != "E" && nacionalidad != "n" && nacionalidad != "N")
+	{
+		nacionalidad = prompt("ERROR Ingrese “A” para argentinos, “E” para extranjeros, “N” para nacionalizados"); 
+	}	
+	if(nacionalidad == "A" || nacionalidad == "a")
+	{ 
+			nacionalidad = "Argentino/a";
+
+	}else if(nacionalidad == "E" || nacionalidad == "e")
+	{
+			nacionalidad = "Extranjero/a";
+
+	}else if(nacionalidad == "N" || nacionalidad == "n")
+	{
+			nacionalidad = "Nacionalizado/a"; 
 	}
 
-	//punto F
-	nacionalidadIngresada = prompt("Ingrese su nacionalidad (A para argentinos, E para extranjeros, N para nacionalizados):")
-	while (nacionalidadIngresada != "A" && nacionalidadIngresada != "E" && nacionalidadIngresada != "N") 
-	{
-		
-	nacionalidadIngresada = prompt("ERROR!!! Ingrese su nacionalidad (A para argentinos, E para extranjeros, N para nacionalizados):");
-	}
-
-	
-
-	document.getElementById("txtIdEdad").value = edadIngresada; 
-	document.getElementById("txtIdSexo").value = sexoIngresado;
-	document.getElementById("txtIdEstadoCivil").value = estadoCivilIngresado;
-	document.getElementById("txtIdSueldo").value = sueldoBruto;
-	document.getElementById("txtIdLegajo").value = numeroLegajo;
 	document.getElementById("txtIdNacionalidad").value = nacionalidad; 
 
-}
+
+
+
+
+
+}	

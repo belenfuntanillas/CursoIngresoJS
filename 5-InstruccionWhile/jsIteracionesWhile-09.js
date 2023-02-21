@@ -17,7 +17,12 @@ function mostrar()
 
 	banderaDelPrimero= true;
 	banderaPar = true;
+	banderaMayorNegativos = true; 
 	respuesta='si';
+	numeroMaximo = -Infinity; 
+	numeroMinimo = Infinity; 
+	MenorPar = Infinity; 
+	mayorNegativos = -Infinity;
 
 	while(respuesta=="si")  //while principal 
 	{
@@ -33,13 +38,13 @@ function mostrar()
 			numeroMinimo = numeroIngresado;
 			banderaDelPrimero = false; 
 		}
-		else if(numeroMaximo < numeroIngresado) //numeroIngresado > numeroMaximo
+		else if(numeroIngresado > numeroMaximo) //numeroIngresado > numeroMaximo
 		{
 			numeroMaximo = numeroIngresado;
 		}
 		else if(numeroIngresado < numeroMinimo)
 		{
-			numeroIngresado = numeroMinimo;
+			numeroMinimo = numeroIngresado; 
 		}
 		// 9 BIS
 		if(numeroIngresado % 2 == 0)
@@ -47,22 +52,24 @@ function mostrar()
 			if(banderaPar == true || MenorPar > numeroIngresado)
 			{
 				MenorPar = numeroIngresado;
+				banderaPar = false; 
 			}
 			
 		}
-		if(numeroIngresado < 0)
+		else if( numeroIngresado < 0)
 		{
-			if (banderaMayorNegativos == true || mayorNegativos < numeroIngresado) 
+            if(banderaMayorNegativos == true || numeroIngresado > mayorNegativos)
 			{
-				mayorNegativos = numeroIngresado; 
-			}
-		}
+                mayorNegativos = numeroIngresado; 
+				banderaMayorNegativos = false; 
+            }
+        }
 		respuesta=prompt("desea continuar? si/no");
 	}
 	
 	alert("Su mayor negativo es " + mayorNegativos); 
 	alert("Su menor par es " + MenorPar);
-	document.getElementById("txtIdMaximo").value = numeroMaximo
-	document.getElementById("txtIdMinimo").value = numeroMinimo
+	document.getElementById("txtIdMaximo").value = numeroMaximo;
+	document.getElementById("txtIdMinimo").value = numeroMinimo; 
 	
 }//FIN DE LA FUNCIÓN
