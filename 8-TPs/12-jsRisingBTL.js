@@ -16,6 +16,8 @@ function ComenzarIngreso ()
 	let sueldoBruto;
 	let numeroLegajo; 
 	let nacionalidad; 
+
+	numeroLegajo = ""; 
 	
 	//PUNTO A 
 	edadIngresada = parseInt(prompt("Ingrese una edad entre 18 y 90 años")); 
@@ -50,19 +52,22 @@ function ComenzarIngreso ()
 
 		if(estadoCivilIngresado == "1")
 		{
-			estadoCivilIngresado = "Su estado civil es soltero/a";
-
-		}else if(estadoCivilIngresado == "2")
-		{
-			estadoCivilIngresado = "Su estado civil es casado/a";
-
-		}else if (estadoCivilIngresado == "3") 
-		{
 			estadoCivilIngresado = "Su estado civil es soltero";
-
-		}else if (estadoCivilIngresado == "4") 
+		}
+	
+		if(estadoCivilIngresado == "2")
 		{
-			estadoCivilIngresado = "Su estado civil es viudo/a";
+			estadoCivilIngresado = "Su estado civil es casado";
+		}
+	
+		if(estadoCivilIngresado == "3")
+		{
+			estadoCivilIngresado = "Su estado civil es divorciado";
+		}
+	
+		if(estadoCivilIngresado == "4")
+		{
+			estadoCivilIngresado = "Su estado civil es viudo";
 		}
 	}
 	document.getElementById("txtIdEstadoCivil").value = estadoCivilIngresado; 
@@ -78,12 +83,11 @@ function ComenzarIngreso ()
 
 	//PUNTO E
 	numeroLegajo = parseInt(prompt("Ingrese numero de legajo (numérico de 4 cifras, sin ceros a la izquierda)")); 
-	while (isNaN(numeroLegajo)) 
+	while(isNaN(numeroLegajo) || numeroLegajo < 1000 || numeroLegajo > 9999)
 	{
-		numeroLegajo = parseInt(prompt("ERROR Ingrese numero de legajo (numérico de 4 cifras, sin ceros a la izquierda)")); 
-
+		numeroLegajo = parseInt(prompt("ERROR: su numero de legajo no puede ser menor a 1000"))
 	}
-	document.getElementById("txtIdLegajo").value = numeroLegajo; 
+	document.getElementById("txtIdLegajo").value = "El numero de legajo es: " + numeroLegajo; 
 
 	//PUNTO F
 	nacionalidad = prompt("Ingrese “A” para argentinos, “E” para extranjeros, “N” para nacionalizados"); 
