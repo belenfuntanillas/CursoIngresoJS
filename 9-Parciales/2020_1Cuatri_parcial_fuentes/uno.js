@@ -99,15 +99,16 @@ function mostrar()
 		}
 	}
 	
-	if (acumuladorAlcohol > acumuladorJabon)
+	if (acumuladorAlcohol > acumuladorJabon && acumuladorAlcohol > acumuladorBarbijo) 
 		{
 			mayorTipo = "el alcohol";
 			promedio = acumuladorAlcohol / contadorAlcohol;
-		}else if(acumuladorJabon > acumuladorBarbijo)
+		}else if(acumuladorJabon > acumuladorBarbijo && acumuladorJabon > acumuladorAlcohol) 
 		{
 			mayorTipo = "el jabon";
 			promedio = acumuladorJabon / contadorJabon; 
-		}else{
+		}else if(acumuladorBarbijo > acumuladorJabon && acumuladorBarbijo > acumuladorAlcohol)
+		{
 			mayorTipo = "el barbijo";
 			promedio = acumuladorBarbijo / contadorBarbijo; 
 		}
