@@ -93,6 +93,9 @@ function mostrar()
 				contadorJabon = contadorJabon + 1;
 				acumuladorJabon = acumuladorJabon + unidadesProducto; 
 				break; 
+			case "alcohol":
+				contadorAlcohol = contadorAlcohol + 1;
+				acumuladorAlcohol = acumuladorAlcohol + unidadesProducto;
 		}
 	}
 	
