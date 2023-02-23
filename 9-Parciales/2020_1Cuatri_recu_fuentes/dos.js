@@ -112,7 +112,7 @@ function mostrar()
         acumuladorCantidadCemento = acumuladorCantidadCemento + cantidad; 
         acumuladorPrecioCemento = acumuladorPrecioCemento + precio;
     }
-    promedio  = acumuladorCantidadArena / contadorArena; 
+    promedio  = acumuladorPrecioArena / contadorArena; 
   }
     console.log(precioTotalBruto); 
     console.log(precioConDescuento);
