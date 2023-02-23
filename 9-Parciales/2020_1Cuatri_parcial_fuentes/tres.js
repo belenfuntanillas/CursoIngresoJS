@@ -23,8 +23,9 @@ function mostrar()
 	let promedioEdad; 
 	let acumuladorEdadHombreSoltero;
 	let contadorEdadHombreSoltero; 
+	let respuesta; 
+	let contadorSolteros; 
 
-	respuesta = "si"; 
 	banderaTemperatura == true;
 	mayorTemperatura = 0; 
 	contadorAbuelosTemperaturaAlta = 0;
@@ -32,6 +33,8 @@ function mostrar()
 	contadorViudos = 0; 
 	acumuladorEdadHombreSoltero = 0; 
 	contadorEdadHombreSoltero = 0; 
+	contadorSolteros = 0; 
+	respuesta = "si";
 
 	while(respuesta == "si")
 	{
@@ -61,45 +64,53 @@ function mostrar()
 		}
 
 		temperaturaCorporal = parseFloat(prompt("Ingrese su temperatura"));
-		while(isNaN(temperaturaCorporal) || temperaturaCorporal < 30 || temperaturaCorporal > 50)
+		while(isNaN(temperaturaCorporal) || temperaturaCorporal < 30 || temperaturaCorporal > 45)
 		{
 			temperaturaCorporal = parseFloat(prompt("ERROR Ingrese su temperatura"));
 
 		}
+		respuesta = prompt("¿Desea continuar? si / no"); 
 
-		respuesta = "¿Desea continuar? si / no"
-
-		//punto A
-		if(banderaTemperatura == true || temperaturaCorporal > mayorTemperatura)
+		if(sexo == "m" || sexo == "M")
 		{
-			temperaturaCorporal = mayorTemperatura; 
+			sexo = "masculino"; 
+			
+		}else 
+		{
+			sexo = "femenino";
+		}
+
+		if(banderaTemperatura == true || mayorTemperatura < temperaturaCorporal)
+		{
+			mayorTemperatura = temperaturaCorporal; 
 			nombreMayorTemperatura = nombre; 
 			banderaTemperatura = false; 
 		}
 
-		//punto B
-		if( edad > 18 && estadoCivil == "viudo" || estadoCivil == "Viudo")
+		switch(estadoCivil)
 		{
-			contadorViudos = contadorViudos + 1; 
-		}
+			case "soltero":
+				if(sexo == "m" || sexo == "M")
+				{
+					acumuladorEdadHombreSoltero = acumuladorEdadHombreSoltero + edad; 
+					contadorHombresSolteroViudo = contadorHombresSolteroViudo + 1; 
+					contadorSolteros = contadorSolteros + 1; 
+				}
+				break;
+			case "casado":
+				break;
 
-		//punto C
-		if(sexo == "m" || sexo == "M")
-		{
-			sexo = "masculino"; 
-			if(estadoCivil == "soltero" || estadoCivil == "Soltero" || estadoCivil == "viudo" || estadoCivil == "Viudo")
-			{
-				contadorHombresSolteroViudo = contadorHombresSolteroViudo + 1; 
-			}
-			if(estadoCivil == "soltero" || estadoCivil == "Soltero")
-			{
-				acumuladorEdadHombreSoltero = acumuladorEdadHombreSoltero + edad; 
-				contadorEdadHombreSoltero = contadorEdadHombreSoltero + 1; 
-			}
-
-		}else 
-		{
-			sexo = "femenino";
+			case "viudo": 
+				if(sexo == "m" || sexo == "M")
+				{
+					contadorHombresSolteroViudo = contadorHombresSolteroViudo + 1; 
+				}
+				
+				if( edad > 17)
+				{
+					contadorViudos = contadorViudos + 1; 
+				}
+				break; 
 		}
 
 		if(edad > 60 && temperaturaCorporal > 38)
@@ -107,7 +118,8 @@ function mostrar()
 			contadorAbuelosTemperaturaAlta = contadorAbuelosTemperaturaAlta + 1;
 		}
 
-		promedioEdad = acumuladorEdadHombreSoltero / contadorEdadHombreSoltero; 
+		promedioEdad = acumuladorEdadHombreSoltero / contadorSolteros; 
+
 	}
 
 	console.log("El nombre de la persona con mas temperatura es: " + nombreMayorTemperatura);
