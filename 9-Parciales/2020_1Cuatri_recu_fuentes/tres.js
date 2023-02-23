@@ -21,17 +21,20 @@ function mostrar()
 	let contadorMujeresSolterasViudas;
 	let contadorAbuelosTemperaturaAlta; 
 	let promedioEdad; 
-	let acumuladorEdadHombreSoltero;
+	let acumuladorEdadMujerCasada;
+	let contadorMujerCasada; 
 	let contadorEdadHombreSoltero; 
 	let respuesta; 
 
 
 	banderaTemperatura == true;
 	mayorTemperatura = 0; 
+	contadorMujerCasada = 0; 
+	acumuladorEdadMujerCasada = 0; 
 	contadorAbuelosTemperaturaAlta = 0;
 	contadorHombresSolteroViudo = 0; 
 	contadorViudos = 0; 
-	acumuladorEdadHombreSoltero = 0; 
+	acumuladorEdadMujerCasada = 0; 
 	contadorEdadHombreSoltero = 0; 
 	contadorSolteros = 0; 
 	respuesta = "si";
@@ -89,7 +92,7 @@ function mostrar()
 		if(banderaTemperatura == true || mayorTemperatura < temperaturaCorporal)
 		{
 			mayorTemperatura = temperaturaCorporal; 
-			nacionalidadMayorTemperatura = nombre; 
+			nacionalidadMayorTemperatura = nacionalidad; 
 			banderaTemperatura = false; 
 		}
 
@@ -98,25 +101,26 @@ function mostrar()
 			case "soltero":
 				if(sexo == "f" || sexo == "F")
 				{
-					acumuladorEdadHombreSoltero = acumuladorEdadHombreSoltero + edad; 
 					contadorMujeresSolterasViudas = contadorMujeresSolterasViudas + 1; 
+					contadorSolteros = contadorSolteros + 1; 
+				}
+				if( edad > 17)
+				{
 					contadorSolteros = contadorSolteros + 1; 
 				}
 				break;
 			case "casado":
-				break;
-
+				if(sexo == "f" || sexo == "F")
+				{
+					acumuladorEdadMujerCasada = acumuladorEdadMujerCasada + edad; 
+					contadorMujerCasada = contadorMujerCasada + 1; 
+				}
+				break; 
 			case "viudo": 
 				if(sexo == "f" || sexo == "F")
 				{
 					contadorMujeresSolterasViudas = contadorMujeresSolterasViudas + 1; 
 				}
-				
-				if( edad > 17)
-				{
-					contadorSolteros = contadorSolteros + 1; 
-				}
-				break; 
 		}
 
 		if(edad > 60 && temperaturaCorporal > 38)
@@ -124,13 +128,13 @@ function mostrar()
 			contadorAbuelosTemperaturaAlta = contadorAbuelosTemperaturaAlta + 1;
 		}
 
-		promedioEdad = acumuladorEdadHombreSoltero / contadorSolteros; 
+		promedioEdad = acumuladorEdadMujerSoltera / contadorMujeresSolterasViudas; 
 
 	}
 
 	console.log("La nacionalidad de la persona con mas temperatura es: " + nacionalidadMayorTemperatura);
 	console.log(contadorSolteros + " es la cantidad de mayores de edad solteros"); 
-	console.log("La cantidad de hombres solteros o viudos es: " + contadorMujeresSolterasViudas);
+	console.log("La cantidad de mujeres solteras o viudas es: " + contadorMujeresSolterasViudas);
 	console.log(contadorAbuelosTemperaturaAlta + " es la cantidad de gente de la tercera edad con temperatura mayor a 38°");
 	console.log("Promedio de edad entre los hombres solteros es: " + promedioEdad); 
 }
