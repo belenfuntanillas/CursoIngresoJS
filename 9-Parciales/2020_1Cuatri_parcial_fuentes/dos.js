@@ -13,7 +13,7 @@ f) El tipo mas caro
 */
 function mostrar()
 {
-  let tipoProducto;
+  /*let tipoProducto;
   let cantidad;
   let precio;
   let respuesta; 
@@ -128,6 +128,163 @@ function mostrar()
     alert(precioTotalBruto); 
     alert(precioConDescuento);
     alert(mensaje); 
-    alert(mensaje1)
+    alert(mensaje1)*/
 
+    ////////////////////////////////////////////////////////////////////////////////////////
+
+    /*Parcial 2020 2 bis: 
+    /"La veterinaria" pedir el ingreso de 10 mascotas
+    validar
+    tipo ( gato , perro , pájaro y otros)solo esos cuatro tipo
+    raza: si es perro (pastor, toy, callejero) y 
+    si gato (siamés, turco, Peterbald , generico) 
+    y si es de tipo "otros" o pájaro , pedir solo un texto
+    Edad entre 1 y 20 para gatos y perros , para "otros" entre 1 y 100 , para pájaro 1 de 50
+    nombre (no se permite solo numero)
+    mostrar por cada tipo el nombre del mas viejo , solo si hay de ese tipo
+    mostrar que raza de gatos tiene mas animales y el promedio de edad de esta raza*/
+
+    let tipoMascota;
+    let razaPerro; 
+    let razaGato;
+    let razaPajaro;
+    let razaOtros;
+    let edadPerro;
+    let edadGato;
+    let edadPajaro;
+    let edadOtros; 
+    let nombre;
+    let banderaGatoMasViejo;
+    let banderaPerroMasViejo;
+    let banderaPajaroMasViejo;
+    let banderaOtroMasViejo;
+    let nombreGatoViejo;
+    let nombrePerroViejo;
+    let nombrePajaroViejo;
+    let nombreOtroViejo; 
+    let mayorEdadPerro;
+    let mayorEdadGato;
+    let mayorEdadPajaro;
+    let mayorEdadOtros
+    let contadorSiames;
+    let contadorTurco;
+
+     banderaGatoMasViejo = true;
+     banderaPerroMasViejo = true; 
+     banderaPajaroMasViejo = true; 
+     banderaOtroMasViejo = true; 
+     contadorSiames = 0; 
+
+
+    for(i = 0; i < 2; i++)
+    {
+        tipoMascota = prompt("Ingrese el tipo de mascota (gato , perro , pájaro y otros)");
+        while(tipoMascota != "gato" && tipoMascota != "perro" && tipoMascota != "pajaro" && tipoMascota != "otros")
+        {
+            tipoMascota = prompt("ERROR Ingrese el tipo de mascota (gato , perro , pájaro y otros)");
+
+        }
+
+        nombre = prompt("Ingrese el nombre");
+                while(!isNaN(nombre))
+                {
+                    nombre = prompt("ERROR Ingrese el nombre");
+                }
+
+        switch(tipoMascota)
+        {
+            case "gato":
+                razaGato = prompt("Ingrese la raza del gato (siamés, turco, Peterbald , generico)");
+                while(razaGato != "siames" && razaGato != "turco" && razaGato != "peterbald" && razaGato != "generico")
+                {
+                    razaGato = prompt("ERROR Ingrese la raza del gato (siamés, turco, Peterbald , generico)");
+                }
+
+                edadGato = prompt("Ingrese su edad entre 1 y 20 años");
+                while(isNaN(edadGato) || edadGato < 1 || edadGato > 20)
+                {
+                    edadGato = parseInt(prompt("ERROR Ingrese su edad entre 1 y 20 años"));
+
+                }
+
+               
+
+                if(banderaGatoMasViejo == true || banderaGatoMasViejo < edadGato)
+                {
+                    banderaGatoMasViejo = edadGato;
+                    nombreGatoViejo = nombre;
+                    banderaGatoMasViejo = false; 
+                }
+                break; 
+            case "perro":
+                razaPerro = prompt("Ingrese la raza de perro (pastor, toy, callejero)"); 
+                while(razaPerro != "pastor" && razaPerro != "toy" && razaPerro != "callejero")
+                {
+                    razaPerro = prompt("ERROR Ingrese la raza de perro (pastor, toy, callejero)");
+                }
+
+                edadPerro = parseInt(prompt("Ingrese la edad del perro entre 1 y 20 años")); 
+                while(isNaN(edadPerro) || edadPerro < 1 || edadPerro > 20)
+                {
+                    edadPerro = prompt("ERROR Ingrese su edad entre 1 y 20 años");
+
+                }
+
+                if(banderaPerroMasViejo == true || banderaPerroMasViejo < edadPerro)
+                {
+                    banderaPerroMasViejo = edadPerro;
+                    nombrePerroViejo = nombre;
+                    banderaPerroMasViejo = false; 
+                }
+                break; 
+            case "pajaro": 
+                razaPajaro = prompt("Ingrese la raza de su pajaro");
+                while(!isNaN(razaPajaro))
+                {
+                    razaPajaro = prompt("ERROR Ingrese la raza de su pajaro");
+                }
+
+                edadPajaro = parseInt(prompt("Ingrese la edad del perro entre 1 y 50 años")); 
+                while(isNaN(edadPajaro) || edadPajaro < 1 || edadPajaro > 50)
+                {
+                    edadPajaro = prompt("ERROR Ingrese su edad entre 1 y 50 años");
+                }
+
+                if(banderaPajaroMasViejo == true || banderaPajaroMasViejo < edadPajaro)
+                {
+                    banderaPajaroMasViejo = edadPajaro;
+                    nombrePajaroViejo = nombre;
+                    banderaPajaroMasViejo = false; 
+                }
+                break; 
+            case "otros":
+                razaOtros = prompt("Ingrese la raza");
+                while(!isNaN(razaOtros))
+                {
+                    razaOtros = prompt("ERROR Ingrese la raza");
+                }
+
+                edadOtros = parseInt(prompt("Ingrese la edad entre 1 y 100 años")); 
+                while(isNaN(edadOtros) || edadOtros < 1 || edadOtros > 100)
+                {
+                    edadOtros = prompt("ERROR Ingrese su edad entre 1 y 100 años");
+                }
+
+                if(banderaOtroMasViejo == true || banderaOtroMasViejo < edadOtros)
+                {
+                    banderaOtroMasViejo = edadOtros;
+                    nombreOtroViejo = nombre;
+                    banderaOtroMasViejo = false; 
+                }
+                break;  
+        }
+
+       
+
+    }
+
+    console.log("El gato mas viejo es " + nombreGatoViejo); 
+    console.log("El perro mas viejo es " + nombrePerroViejo);
+    console.log("El pajaro mas viejo es " + nombrePajaroViejo);
+    console.log("Otros mas viejo es " + nombreOtroViejo); 
 }
