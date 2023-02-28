@@ -8,7 +8,7 @@ e) El promedio de edad entre las mujeres casadas
 */
 function mostrar()
 {
-	let nombre;
+	/*let nombre;
 	let edad;
 	let sexo;
 	let nacionalidad;
@@ -136,7 +136,119 @@ function mostrar()
 	console.log(contadorSolteros + " es la cantidad de mayores de edad solteros"); 
 	console.log("La cantidad de mujeres solteras o viudas es: " + contadorMujeresSolterasViudas);
 	console.log(contadorAbuelosTemperaturaAlta + " es la cantidad de gente de la tercera edad con temperatura mayor a 38°");
-	console.log("Promedio de edad entre los hombres solteros es: " + promedioEdad); 
+	console.log("Promedio de edad entre los hombres solteros es: " + promedioEdad); */
+
+	/*
+		Recu 2020 3 bis: /*Vacaciones en Familia" 
+		Nos ingresan una cantidad indeterminada de estadías de vacaciones, 
+		validando los datos ingresados:
+		nombre del pasajero titular, 
+		destino( “Brasil”, “Caribe” o “Europa”), 
+		temporada(“alta”,”baja”,“media”),
+		cantidad de pasajeros que viajan.
+		Informar:
+		a)El destino más elegido.
+		b)El nombre del pasajero titular que lleva menos pasajeros.
+		c)El promedio de personas, que viajan en temporada alta.
+		d)El total de personas que viajaron a Europa.
+	*/
+
+	let nombrePasajero;
+	let destino;
+	let temporada;
+	let cantidadPasajeros;
+	let respuesta;
+	let acumuladorBrasil;
+	let acumuladorCaribe;
+	let acumuladorEuropa;
+	let banderaMenosPasajeros;
+	let nombreMenosPasajeros;
+	let acumuladorTemporadaAlta;
+	let promedio;
+	let mensaje; 
+	
+	
+
+	respuesta = "si";
+	banderaMenosPasajeros = true;
+	acumuladorBrasil = 0;
+	acumuladorCaribe = 0;
+	acumuladorEuropa = 0;
+	acumuladorTemporadaAlta = 0; 
+	
+
+	while(respuesta == "si")
+	{
+		nombrePasajero = prompt("Ingrese el nombre del pasajero titular");
+		destino = prompt("Ingrese destino (“Brasil”, “Caribe” o “Europa”)");
+		while(destino != "Brasil" && destino != "Caribe" && destino != "Europa")
+		{
+			destino = prompt("ERROR Ingrese destino (“Brasil”, “Caribe” o “Europa”)");
+		}
+
+		temporada = prompt("Ingrese la temporada (“alta”,”baja”,“media”)");
+		while(temporada != "alta" && temporada != "baja" && temporada != "media")
+		{
+			temporada = prompt("Ingrese la temporada (“alta”,”baja”,“media”)");
+		}
+
+		cantidadPasajeros = parseInt(prompt("Ingrese la cantidad de pasajeros"));
+		while(isNaN(cantidadPasajeros) || cantidadPasajeros < 0)
+		{
+			cantidadPasajeros = parseInt(prompt("ERROR Ingrese la cantidad de pasajeros"));
+		}
+
+		switch(destino)
+		{
+			case "Brasil":
+				acumuladorBrasil = acumuladorBrasil + cantidadPasajeros;
+				break; 
+			case "Caribe":
+				acumuladorCaribe = acumuladorCaribe + cantidadPasajeros;
+				break; 
+			case "Europa":
+				acumuladorEuropa = acumuladorEuropa + cantidadPasajeros; 
+				break; 
+		}
+
+		if(acumuladorBrasil > acumuladorCaribe && acumuladorBrasil > acumuladorEuropa)
+		{
+			mensaje = "El destino mas elegido es Brasil";
+		}else if(acumuladorCaribe > acumuladorBrasil && acumuladorCaribe > acumuladorEuropa)
+		{
+			mensaje = "El destino mas elegido es Caribe";
+		}else if(acumuladorEuropa > acumuladorBrasil && acumuladorEuropa > acumuladorCaribe)
+		{
+			mensaje = "El destino mas elegido es Europa";
+		}
+
+		if(banderaMenosPasajeros == true || banderaMenosPasajeros > cantidadPasajeros)
+		{
+			banderaMenosPasajeros = cantidadPasajeros;
+			nombreMenosPasajeros = nombrePasajero;
+			banderaMenosPasajeros = false; 
+		}
+
+		switch(temporada)
+		{
+			case "alta":
+				acumuladorTemporadaAlta = acumuladorTemporadaAlta + cantidadPasajeros;
+				break; 
+			case "baja":
+			case "media":
+				break; 
+		}
+
+		promedio = cantidadPasajeros / acumuladorTemporadaAlta; 
+
+		respuesta = prompt("Desea constinuar? si/no");
+	}
+
+	console.log("cantidad de personas que viajaron a europa: " + acumuladorEuropa);
+	console.log(mensaje); 
+	console.log("El promedio de personas, que viajan en temporada alta: " + promedio); 
+	console.log("El nombre del pasajero titular que lleva menos pasajeros: " + nombreMenosPasajeros)
+
 }
 
 
